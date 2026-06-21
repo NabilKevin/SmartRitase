@@ -257,7 +257,7 @@ export function ProofDeliveries() {
       <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        title={editingId ? 'Edit Bukti Pengiriman' : 'Tambah Bukti Pengiriman'}
+        title={editingId ? 'Edit Bukti Pengiriman' : isShowData ? 'Lihat Bukti Pengiriman' : 'Tambah Bukti Pengiriman'}
         className="max-w-2xl max-h-9/10 overflow-y-auto"
       >
         <form onSubmit={handleSubmit} className="space-y-4">

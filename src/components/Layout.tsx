@@ -67,7 +67,7 @@ export function Layout({ children, title }: LayoutProps) {
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
           <div className="mb-3">
-            <p className="text-sm text-muted-foreground">Logged in as</p>
+            <p className="text-sm text-muted-foreground">Masuk Sebagai</p>
             <p className="font-medium truncate">{user.username || user.email}</p>
             <p className="text-xs text-muted-foreground capitalize">{user.role}</p>
           </div>

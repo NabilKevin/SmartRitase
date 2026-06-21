@@ -39,12 +39,12 @@ function Dashboard() {
 
   const statCards = [
     {
-      title: 'Land Tickets',
+      title: 'Bon Tanah',
       value: stats.landTickets,
       color: 'border-accent',
     },
     {
-      title: 'Proof Deliveries',
+      title: 'Bukti Pengiriman',
       value: stats.proofDeliveries,
       color: 'border-primary',
     },

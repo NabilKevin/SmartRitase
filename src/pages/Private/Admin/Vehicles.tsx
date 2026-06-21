@@ -121,12 +121,12 @@ function Vehicles() {
   }
 
   return (
-    <Layout title="Bon Tanah">
+    <Layout title="Kendaraan">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Daftar Pengguna</h2>
+          <h2 className="text-xl font-semibold">Daftar Kendaraan</h2>
           <Button variant="outline" onClick={() => setIsModalOpen(true)} className="flex items-center gap-2">
-            <Plus size={20} /> Tambah Pengguna
+            <Plus size={20} /> Tambah Kendaraan
           </Button>
         </div>
 
@@ -135,7 +135,7 @@ function Vehicles() {
             {isLoadingVehicle ? (
               <SkeletonTable />
             ) : vehicles.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">Tidak ada Vehicle</div>
+              <div className="text-center py-8 text-muted-foreground">Tidak ada Kendaraan</div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -200,7 +200,7 @@ function Vehicles() {
         )}
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title={editingId ? 'Edit Bon Tanah' : 'Tambah Bon Tanah'} className="max-w-2xl max-h-9/10 overflow-y-auto">
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title={editingId ? 'Edit Kendaraan' : isShowData ? 'Lihat Kendaraan' : 'Tambah Kendaraan'} className="max-w-2xl max-h-9/10 overflow-y-auto">
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Plat Nomor"

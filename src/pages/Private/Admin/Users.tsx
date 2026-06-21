@@ -114,7 +114,7 @@ function Users() {
   }
 
   return (
-    <Layout title="Bon Tanah">
+    <Layout title="Pengguna">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold">Daftar Pengguna</h2>
@@ -197,7 +197,7 @@ function Users() {
         )}
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title={editingId ? 'Edit Bon Tanah' : 'Tambah Bon Tanah'} className="max-w-2xl max-h-9/10 overflow-y-auto">
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title={editingId ? 'Edit Pengguna' : isShowData ? 'Lihat Pengguna' : 'Tambah Pengguna'} className="max-w-2xl max-h-9/10 overflow-y-auto">
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Username"
