@@ -50,7 +50,7 @@ export function LandTickets() {
 
   useEffect(() => {
     fetchLandTickets(user)
-    fetchVehicles(user)
+    fetchVehicles()
     if (user?.role === 'admin') fetchUsers()
   }, [user?.role])
 
@@ -290,7 +290,7 @@ export function LandTickets() {
             label="Kendaraan"
             value={formData.vehicle_id}
             onChange={(e) => setFormData(prev => ({ ...prev, vehicle_id: e.target.value }))}
-            options={vehicles.map((v) => ({ value: v.id, label: `${v.plate} - ${v.type}` }))}
+            options={vehicles.map((v) => ({ value: v.id!, label: `${v.plate} - ${v.type}` }))}
             disabled={submitting || isShowData}
           />
 

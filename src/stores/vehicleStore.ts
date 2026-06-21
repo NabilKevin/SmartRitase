@@ -1,7 +1,6 @@
 import { create } from 'zustand';
-import type { AuthUser, FetchDriverDataParams, Vehicle } from '@/types';
-import type { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
-import { createVehicle, getVehicles } from '@/services/vehicleService';
+import type { Vehicle } from '@/types';
+import { getVehicles } from '@/services/vehicleService';
 
 interface VehicleStore {
   vehicles: Vehicle[];

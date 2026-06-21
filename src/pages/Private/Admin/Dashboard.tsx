@@ -2,65 +2,40 @@ import { useEffect, useState } from 'react'
 import { Layout } from '@/components/Layout'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useAuthStore } from '@/stores/authStore'
-// import {
-//   getLandTickets,
-//   getProofDeliveries,
-//   getVehicles,
-//   getUsers,
-// } from '@/services/database'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useLandTicketStore } from '@/stores/landTicketStore'
 import { useProofDeliveryStore } from '@/stores/proofDeliveryStore'
+import { useVehicleStore } from '@/stores/vehicleStore'
+import { useUserStore } from '@/stores/userStore'
 
 function Dashboard() {
-  const getVehicles = (...props: any) => ({total: 0})
-  const getUsers = (...props: any) => ({total: 0})
-
   const { user } = useAuthStore()
-  const { fetchLandTickets, landTickets } = useLandTicketStore()
-  const { fetchProofDeliveries, proofDeliveries } = useProofDeliveryStore()
+  const { fetchLandTickets, landTickets, isLoadingLandTicket } = useLandTicketStore()
+  const { fetchProofDeliveries, proofDeliveries, isLoadingProofDelivery } = useProofDeliveryStore()
+  const { fetchVehicles, vehicles, isLoadingVehicle } = useVehicleStore()
+  const { fetchUsers, users, isLoadingUser } = useUserStore()
   const [stats, setStats] = useState({
     landTickets: 0,
     proofDeliveries: 0,
     vehicles: 0,
     users: 0,
   })
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const loadStats = async () => {
-      setLoading(true)
-      try {
-        const [vehiclesResult, usersResult] =
-          await Promise.all([
-            getVehicles(1),
-            getUsers(1),
-          ])
-
-        setStats(props => ({
-          ...props,
-          vehicles: vehiclesResult.total,
-          users: usersResult.total,
-        }))
-      } catch (error) {
-        console.error('Error loading stats:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadStats()
     fetchLandTickets()
     fetchProofDeliveries()
+    fetchVehicles()
+    fetchUsers()
   }, [])
 
   useEffect(() => {
-    setStats(props => ({
-      ...props,
+    setStats(() => ({
+      users: users.length,
+      vehicles: vehicles.length,
       landTickets: landTickets.length,
       proofDeliveries: proofDeliveries.length,
     }))
-  }, [landTickets, proofDeliveries])
+  }, [landTickets, proofDeliveries, vehicles, users])
 
   const statCards = [
     {
@@ -92,7 +67,7 @@ function Dashboard() {
           {statCards.map((stat) => (
             <Card key={stat.title} className="border-l-4">
               <CardContent className="pt-6">
-                {loading ? (
+                {isLoadingLandTicket || isLoadingProofDelivery || isLoadingUser || isLoadingVehicle ? (
                   <>
                     <Skeleton className="h-8 w-16 mb-2" />
                     <Skeleton className="h-4 w-24" />

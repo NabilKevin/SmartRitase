@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '@/stores/authStore'
 import { Menu, X, LogOut } from 'lucide-react'
 import { Button } from './ui/button'
-import { createUser } from '@/services/userService'
 
 interface LayoutProps {
   children: React.ReactNode

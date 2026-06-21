@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react'
 import { Layout } from '@/components/Layout'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useAuthStore } from '@/stores/authStore'
-// import {
-//   getLandTickets,
-//   getProofDeliveries,
-// } from '@/services'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useVehicleStore } from '@/stores/vehicleStore'
 import { useLandTicketStore } from '@/stores/landTicketStore'

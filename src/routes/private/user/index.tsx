@@ -1,7 +1,6 @@
 import { Home } from "@/pages/Private/User/Home"
 import { LandTickets } from "@/pages/Private/User/LandTickets"
 import { ProofDeliveries } from "@/pages/Private/User/ProofDeliveries"
-import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 
 const UserRoute = () => {

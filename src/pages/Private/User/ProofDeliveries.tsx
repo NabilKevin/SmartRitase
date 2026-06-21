@@ -267,7 +267,7 @@ export function ProofDeliveries() {
                 label="Land Ticket"
                 value={formData.land_ticket_id}
                 onChange={(e) => setFormData({ ...formData, land_ticket_id: e.target.value })}
-                options={landTickets.map((t) => ({ value: t.id, label: `${user?.role == 'user' ? user.username : users.find(u => u.uid == t.driver_id)?.username} - ${formatDateTime(t.date)}` }))}
+                options={landTickets.map((t) => ({ value: t.id!, label: `${user?.role == 'user' ? user.username : users.find(u => u.uid == t.driver_id)?.username} - ${formatDateTime(t.date)}` }))}
                 disabled={submitting || isShowData}
               />
             ) : (
@@ -275,7 +275,7 @@ export function ProofDeliveries() {
                 label="Land Ticket"
                 value={formData.land_ticket_id}
                 onChange={(e) => setFormData({ ...formData, land_ticket_id: e.target.value })}
-                options={landTicketFilters.map((t) => ({ value: t.id, label: `${user?.role == 'user' ? user.username : users.find(u => u.uid == t.driver_id)?.username} - ${formatDateTime(t.date)}` }))}
+                options={landTicketFilters.map((t) => ({ value: t.id!, label: `${user?.role == 'user' ? user.username : users.find(u => u.uid == t.driver_id)?.username} - ${formatDateTime(t.date)}` }))}
                 disabled={submitting || isShowData}
               />
             )
