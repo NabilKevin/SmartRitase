@@ -194,7 +194,7 @@ export function ProofDeliveries() {
                         <td className="py-3 px-4">{delivery.project_name}</td>
                         <td className="py-3 px-4">{formatDateTime(delivery.unloading_time)}</td>
                         <td className="py-3 px-4 text-xs">
-                          <a href={`https://www.google.com/maps/search/?api=1&query=$${delivery.landfill_site_lat},${delivery.landfill_site_long}`} target='_blank' rel="noreferrer" className="flex items-center gap-1 text-blue-500">
+                          <a href={`https://www.google.com/maps/search/?q=${delivery.landfill_site_lat},${delivery.landfill_site_long}`} target='_blank' rel="noreferrer" className="flex items-center gap-1 text-blue-500">
                             <MapPin size={14} /> Lokasi Galian
                           </a>
                         </td>
