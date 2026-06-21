@@ -137,7 +137,7 @@ export function ProofDeliveries() {
     if (!confirm('Yakin hapus?')) return
     try {
       await deleteProofDelivery({ id, landTicketId: land_ticket_id })
-      await fetchProofDeliveries(user)
+      resetData()
     } catch (error) {
       alert('Gagal menghapus')
     }
